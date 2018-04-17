@@ -47,6 +47,7 @@ wx.request({
 url:'https://route.showapi.com/04_21',
 data:
 mothod:'GET',
+header:'content-type:json',
 fail:function (res){
 
 },
