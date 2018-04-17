@@ -30,3 +30,24 @@ decode	                Boolean	  false	      是否解码	    1.4.0
 https://developers.weixin.qq.com/miniprogram/dev/component/view.html
 
 
+另外，wxml中wx:for属性可以赋给容器标签，对该条数据进行遍历渲染
+
+用法示例：
+
+<view wx:for="{{demo}}" wx:for-index="index">   //将遍历得到的数据赋给下标index
+<text>{{demo[index].text}}</text>               //对上级循环得到的再次进行遍历
+</view>
+
+//如果数据为一个二维数组或多维数组，就可以运用此方法进行循环渲染，有多少条数据，就会生成多少个，
+      这也为api数据的处理提供了便利(不清楚数据数量的情况，或数据太多)
+      
+      
+//数据的绑定,在wxml中，如果数据是变化的，就可以使用数据绑定，程序启动时会自动去js文件中取值，同样，js也可以控制数据的变化
+
+用法：
+
+<view>
+<image src="{{srcs}}"></image>      //{{}}中的srcs就是一个数据，在js中给出就可以调用
+</view>
+
+
