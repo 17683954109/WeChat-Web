@@ -1,0 +1,32 @@
+//首先，小程序是运行在微信内部，标签的使用和html也不相同
+<view></view> 相同于html中的div，需要注意的是，wxml中没有body之类的标签，js、css等文件也不需要引入，创建page即自动生成和wxml同名的js和wxss文件
+<text></text> 小程序文字标签统一用text
+<swiper></swiper> 滑块标签，也就是轮播，autoplay即为自动轮播，只支持内嵌swiper-item标签
+<swiper-item></swiper-item> 需要轮播的内容放在此标签内，如image等
+<image src=''></image>  图片标签，支持本地文件和图床文件(即http网络图片)
+<form></form> 表单组件，内可以嵌套input和buttom，属性可以参考开发文档，这里只介绍bindsubmit:触发事件，在js文件中进行处理
+
+
+view属性：
+
+      属性名             类型      默认值     说明                                                        最低版本
+hover-class	            String	  none	    指定按下去的样式类。当 hover-class="none" 时，没有点击态效果	
+hover-stop-propagation	Boolean	  false	    指定是否阻止本节点的祖先节点出现点击态	                          1.5.0
+hover-start-time	      Number	  50	      按住后多久出现点击态，单位毫秒	
+hover-stay-time	        Number	  400	      手指松开后点击态保留时间，单位毫秒
+
+text属性：
+
+
+      属性名             类型      默认值     说明          最低版本
+selectable	            Boolean	  false	     文本是否可选	  1.1.0
+space	                  String	  false	     显示连续空格	  1.4.0
+decode	                Boolean	  false	      是否解码	    1.4.0
+
+其他标签和属性可参考：
+
+微信开发文档：
+
+https://developers.weixin.qq.com/miniprogram/dev/component/view.html
+
+
