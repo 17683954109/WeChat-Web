@@ -1,0 +1,60 @@
+//js逻辑层即向视图层wxml发送和处理数据和管理事件
+
+微信的js必须调用微信提供page主方法，如不采用，则会报错
+
+data指定视图层(wxml)中的绑定数据
+
+微信对js的支持比较方便，特别是数据绑定，即wxml中指定数据为js处理发送的话，就可以用{{data}}这种方法将数据交由逻辑层处理data即数据的名称，可以自定义
+
+首先，js的page方法中给了data的集中地址，在内部写数据，写法：
+//字符串：
+demo:'',
+
+//数组：
+
+demo:[
+'index/image/03.png',
+'index/image/04.png'
+]
+
+//number:
+demo:10,
+
+需要注意的是，没一条数据后必须写，号，不支持分号；
+
+另外微信的逻辑层支持ex6的写法，支持let 和 var 声明变量，在page外var的数据属于全局变量，let一般在方法或函数内使用，为局部变量
+
+wxml中几乎所有标签都支持bindtap事件，可以指定响应的函数和方法
+
+发送http请求，微信的http请求只支持https，不支持http，如果要上线必须使用https，http只支持调试，另外，必须在微信公众平台设置request合法域名，
+如不设置，可能无法正常使用
+
+wx.request  属性：url：请求的地址，data：数据和验证信息，如appid等 mothod：请求的方式POST或GET，还有其他的方式，由于未使用过，不做介绍
+
+fail 请求失败的回调函数
+
+success 请求成功的回调函数，例如console.log(res)  查看返回值，方便调用
+
+//分割线
+
+如果要发送数据到一个变量，则可以使用this.setData({})
+
+用法：
+
+move:function (){
+let data=this;
+wx.request({
+url:'https://route.showapi.com/04_21',
+data:
+mothod:'GET',
+fail:function (res){
+
+},
+success:function (res){
+console.log(res)
+let thisy=res.data.showapi_body   //将得到的数据赋给局部变量thisy
+data.setData({demo:thisy})  //将thisy的数据传递给demo
+}
+}),
+
+}
