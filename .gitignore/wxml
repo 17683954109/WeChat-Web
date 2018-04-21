@@ -34,7 +34,7 @@ https://developers.weixin.qq.com/miniprogram/dev/component/view.html
 
 用法示例：
 
-<view wx:for="{{demo}}" wx:for-index="index">   //将遍历得到的数据赋给下标index
+<view wx:for="{{demo}}" wx:for-index="index" wx:key="index">   //将遍历得到的数据赋给下标index,wx:key:以什么作为排序规则，index就是数组的下标
 <text>{{demo[index].text}}</text>               //对上级循环得到的再次进行遍历
 </view>
 
