@@ -1,0 +1,14 @@
+//直接setData的话
+this.setData({sms[0]:'hello'})
+看起来并没有问题，但在编译时却会报错
+
+解决方法就是在function内let一个变量
+
+onclick(){
+let sms=this.data.sms     //函数内声明一个局部变量，然后讲数据push进去，然后setData
+let sss='hello'
+sms.push({              //将数据push进局部变量sms
+  sms:sss
+})
+this.setData({sms:sms})     //前一个sms为data中的，后面的sms是函数内的局部变量sms
+}
