@@ -1,0 +1,8 @@
+//微信为我们提供了将数据存入本地缓存的api
+
+语法：
+
+存入：wx.setStorgeSync(key,value)
+获取：wx.getStorgeSync(key)
+
+通过这个api，当我们退出小程序后，再次进入，数据会得以保存
