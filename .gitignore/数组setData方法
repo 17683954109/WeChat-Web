@@ -1,3 +1,6 @@
+
+
+
 //直接setData的话
 this.setData({sms[0]:'hello'})
 看起来并没有问题，但在编译时却会报错
@@ -12,3 +15,6 @@ sms.push({              //将数据push进局部变量sms
 })
 this.setData({sms:sms})     //前一个sms为data中的，后面的sms是函数内的局部变量sms
 }
+
+
+
